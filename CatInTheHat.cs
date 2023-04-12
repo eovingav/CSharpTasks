@@ -2,6 +2,7 @@
 
 int catNumber;
 string input;
+char cat = '0';
 
 while (true)
 {
@@ -18,9 +19,9 @@ while (true)
         return;
     }
 
-    char cat = input[0];
+    cat = input.Length == 1 ? input[0] : cat;
 
-    if (input.Length == 1 && cat >= 'a' && cat <= 'z')
+    if (cat >= 'a' && cat <= 'z')
     {
         catNumber = cat - 'a' + 1;
         break;
