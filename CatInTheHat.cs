@@ -1,12 +1,7 @@
 ﻿Console.WriteLine("Введите букву котика");
 
 int catNumber;
-int minLatinCharCode = 97;
-int maxLatinCharCode = 122;
 string input;
-char cat;
-int catCode = 0;
-cat = (char)catCode;
 
 while (true)
 {
@@ -14,28 +9,28 @@ while (true)
     if (input == null)
     {
         continue;
-    };
+    }
+
+    input = input.ToLower();
+
     if (input.Equals("exit"))
     {
         return;
-    };
+    }
 
-    if (input.Length == 1)
-    {
-        cat = input.ToLower()[0];
-        catCode = (int)cat;
-    };
+    char cat = input[0];
 
-    if (input.Length > 1 || input.Length <= 0 || catCode < minLatinCharCode || catCode > maxLatinCharCode)
+    if (input.Length == 1 && cat >= 'a' && cat <= 'z')
     {
-        Console.WriteLine("Введена неверная буква котика, попробуйте ещё раз");
+        catNumber = cat - 'a' + 1;
+        break;
     }
     else
     {
-        break;
+        Console.WriteLine("Введена неверная буква котика, попробуйте ещё раз");
     }
 }
-catNumber = catCode - minLatinCharCode + 1;
+
 double catInHatHeight = 2000000d;
 double totalHeight = totalCatHeight(catInHatHeight * 0.4, catNumber);
 Console.WriteLine($"Высота всех котиков {string.Format("{0:f3}", totalHeight)}, всего котиков {catNumber}");
