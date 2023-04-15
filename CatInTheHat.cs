@@ -35,6 +35,7 @@ while (true)
 double catInHatHeight = 2000000d;
 double totalHeight = totalCatHeight(catInHatHeight, catNumber + 1);
 Console.WriteLine($"Высота всех котиков {string.Format("{0:f3}", totalHeight)}, всего котиков {catNumber}");
+
 double totalCatHeight(double height, int catNumber)
 {
     int number = catNumber - 1;
